@@ -215,7 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         app.appendChild(createHero());
         app.appendChild(createProductsSection());
-        app.appendChild(createFeaturesSection());
       }
 
       app.appendChild(createFooter());
@@ -248,7 +247,6 @@ function createHeader() {
       <nav class="nav">
         <a href="#home" class="nav-link" data-page="home">Início</a>
         <a href="#products" class="nav-link" data-page="home">Produtos</a>
-        <a href="#features" class="nav-link" data-page="home">Recursos</a>
         <a href="#instructions" class="nav-link" data-page="instructions">Instruções</a>
         <a href="${DISCORD_LINK}" target="_blank" rel="noopener noreferrer" class="discord-btn">Discord</a>
       </nav>
@@ -376,63 +374,6 @@ function createProductCard(product) {
     </div>
   `;
   return card;
-}
-
-function createFeaturesSection() {
-    const section = document.createElement('section');
-    section.className = 'features';
-    section.id = 'features';
-    
-    const features = [
-        {
-            icon: '🚀',
-            title: 'Performance Superior',
-            description: 'Otimização máxima para garantir o melhor desempenho em qualquer situação.'
-        },
-        {
-            icon: '🛡️',
-            title: 'Segurança Garantida',
-            description: 'Proteção avançada com bypass de todas as restrições e sistemas anti-cheat.'
-        },
-        {
-            icon: '💬',
-            title: 'Suporte 24/7',
-            description: 'Time dedicado pronto para ajudar você a qualquer momento via Discord.'
-        },
-        {
-            icon: '⚡',
-            title: 'Atualizações Constantes',
-            description: 'Sempre atualizado com as últimas versões e correções de segurança.'
-        },
-        {
-            icon: '🎯',
-            title: 'Precisão Absoluta',
-            description: 'Algoritmos avançados para máxima precisão e controle total.'
-        },
-        {
-            icon: '🔧',
-            title: 'Fácil Configuração',
-            description: 'Interface intuitiva e configuração simples para começar rapidamente.'
-        }
-    ];
-    
-    section.innerHTML = `
-        <div class="section-header">
-            <h2 class="section-title">Por que escolher Hypex?</h2>
-            <p class="section-subtitle">Recursos exclusivos que fazem a diferença</p>
-        </div>
-        <div class="features-grid">
-            ${features.map((feature, index) => `
-                <div class="feature-card stagger-in" style="animation-delay: ${index * 0.1}s">
-                    <div class="feature-icon">${feature.icon}</div>
-                    <h3 class="feature-title">${feature.title}</h3>
-                    <p class="feature-description">${feature.description}</p>
-                </div>
-            `).join('')}
-        </div>
-    `;
-    
-    return section;
 }
 
 function createInstructionsPage() {
@@ -664,7 +605,6 @@ function createFooter() {
       <div class="footer-links">
         <a href="#home" class="footer-link" data-page="home">Início</a>
         <a href="#products" class="footer-link" data-page="home">Produtos</a>
-        <a href="#features" class="footer-link" data-page="home">Recursos</a>
         <a href="#instructions" class="footer-link" data-page="instructions">Instruções</a>
         <a href="${DISCORD_LINK}" target="_blank" rel="noopener noreferrer" class="footer-link">Discord</a>
       </div>
