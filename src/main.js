@@ -209,9 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
       app.innerHTML = '';
       app.appendChild(createHeader());
 
-      // Check if we should show instructions page
+      // *** ALTERAÇÃO APLICADA AQUI ***
+      // Verifica qual página de instruções deve ser carregada
       if (window.location.hash === '#instructions') {
-        app.appendChild(createInstructionsPage());
+        app.appendChild(createInstructionsPage()); // Guia Spoofer Original
+      } else if (window.location.hash === '#instructions2') {
+        app.appendChild(createInstructionsPage2()); // Novo Guia Spoofer+Bypass
       } else {
         app.appendChild(createHero());
         app.appendChild(createProductsSection());
@@ -376,7 +379,147 @@ function createProductCard(product) {
   return card;
 }
 
+// INSTRUÇÕES PÁGINA 1 (#instructions)
 function createInstructionsPage() {
+  const page = document.createElement('div');
+  page.className = 'instructions-page';
+  page.innerHTML = `
+    <div class="instructions-container">
+      <aside class="instructions-sidebar">
+        <h3>Guia do Spoofer</h3>
+        <ul>
+          <li><a href="#clean-install" class="sidebar-link active">1. Preparação</a></li>
+          <li><a href="#bios-flash" class="sidebar-link">2. Flash da BIOS</a></li>
+          <li><a href="#bios-config" class="sidebar-link">3. Configuração da BIOS</a></li>
+          <li><a href="#spoofer-process" class="sidebar-link">4. Processo do Spoofer</a></li>
+          <li><a href="#final-steps" class="sidebar-link">5. Passos Finais</a></li>
+        </ul>
+        <div class="community-feedback">
+          <h4>Ainda com dúvidas?</h4>
+          <p>Nossa comunidade no Discord está pronta para ajudar!</p>
+          <a href="${DISCORD_LINK}" target="_blank" rel="noopener noreferrer">Entrar no Discord</a>
+        </div>
+      </aside>
+      <main class="instructions-content">
+        <h1 class="page-title">Guia de Instalação do Spoofer 📁</h1>
+        <p class="powered-by">Powered by Hypex Support</p>
+
+        <section id="clean-install" class="instruction-section">
+          <h2><span class="section-icon">🧹</span> 1. Preparação do Sistema</h2>
+          <p>Para garantir que o spoofer funcione corretamente, é crucial começar com um sistema limpo para remover quaisquer traços de banimentos anteriores.</p>
+          <div class="instruction-box">
+            <div class="instruction-icon">💿</div>
+            <div class="instruction-details">
+              <h3>Reinstalação Limpa do Windows</h3>
+              <p>Você deve realizar uma reinstalação limpa do Windows. Recomendamos usar uma ISO oficial da Microsoft. <strong>Após a instalação, NÃO LOGUE EM NENHUMA CONTA MICROSOFT.</strong></p>
+            </div>
+          </div>
+          <div class="instruction-box">
+            <div class="instruction-icon">🛡️</div>
+            <div class="instruction-details">
+              <h3>Desativar Antivírus</h3>
+              <p>Desative todos os antivírus. Para o Windows Defender, use o <a href="https://www.sordum.org/files/downloads.php?st-defender-control" target="_blank" rel="noopener noreferrer">Control Defender</a> para desativação permanente. (Senha do arquivo: <strong>sordum</strong>)</p>
+            </div>
+          </div>
+          <div class="instruction-box">
+            <div class="instruction-icon">🔄</div>
+            <div class="instruction-details">
+              <h3>Desabilitar Windows Update</h3>
+              <p>Use o <a href="https://www.sordum.org/files/downloads.php?st-windows-update-blocker" target="_blank" rel="noopener noreferrer">WUB (Windows Update Blocker)</a> para evitar atualizações automáticas que possam interferir no processo. (Senha do arquivo: <strong>sordum</strong>)</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="bios-flash" class="instruction-section">
+          <h2><span class="section-icon">⚡</span> 2. Flash da BIOS</h2>
+          <p>Fazer o "flash" da BIOS é um passo essencial. Você deve instalar uma versão <strong>diferente</strong> da atual (superior ou inferior). Nunca use a mesma versão.</p>
+          <div class="instruction-box">
+            <div class="instruction-icon">📥</div>
+            <div class="instruction-details">
+              <h3>Como Fazer o Flash</h3>
+              <p>Baixe o arquivo da BIOS diretamente do site oficial do fabricante da sua placa-mãe. Coloque o arquivo em um pendrive e siga o procedimento de flash. Assista a um tutorial em vídeo se não tiver certeza.</p>
+            </div>
+          </div>
+          <div class="bios-grid">
+            <a href="https://youtu.be/Em7SRaG3L_0" target="_blank" rel="noopener noreferrer" class="bios-card video-link"><h3>ASUS</h3><p>Ver tutorial em vídeo</p></a>
+            <a href="https://youtu.be/dUCWRqOdLUw" target="_blank" rel="noopener noreferrer" class="bios-card video-link"><h3>ASROCK</h3><p>Ver tutorial em vídeo</p></a>
+            <a href="https://youtu.be/DIIde3s02kM" target="_blank" rel="noopener noreferrer" class="bios-card video-link"><h3>GIGABYTE/AORUS</h3><p>Ver tutorial em vídeo</p></a>
+            <a href="https://youtu.be/sKMub20CUNI" target="_blank" rel="noopener noreferrer" class="bios-card video-link"><h3>MSI</h3><p>Ver tutorial em vídeo</p></a>
+            <a href="https://www.youtube.com/watch?v=EBb0zH5FN6k&t" target="_blank" rel="noopener noreferrer" class="bios-card video-link"><h3>BIOSTAR</h3><p>Ver tutorial em vídeo</p></a>
+            <a href="https://www.youtube.com/watch?v=RnI53zsoAoM&t" target="_blank" rel="noopener noreferrer" class="bios-card video-link"><h3>X99 / X79</h3><p>Ver tutorial em vídeo</p></a>
+          </div>
+        </section>
+
+        <section id="bios-config" class="instruction-section">
+          <h2><span class="section-icon">⚙️</span> 3. Configuração da BIOS</h2>
+          <p>Após o flash, entre na BIOS novamente para fazer as seguintes alterações. Salve e saia ao concluir.</p>
+          <div class="bios-grid">
+            <div class="bios-card">
+              <h3 class="bios-title">Processadores AMD</h3>
+              <ul class="bios-list">
+                <li><strong>TPM 2.0:</strong> Desabilitado</li>
+                <li><strong>Trusted Computing:</strong> Desabilitado</li>
+                <li><strong>Secure Boot:</strong> Desabilitado</li>
+                <li><strong>CSM:</strong> Desabilitado</li>
+                <li><strong>SVM (Virtualization):</strong> Desabilitado</li>
+              </ul>
+            </div>
+              <div class="bios-card">
+              <h3 class="bios-title">Processadores Intel</h3>
+              <ul class="bios-list">
+                <li><strong>PTT / TPM:</strong> Desabilitado</li>
+                <li><strong>Trusted Computing:</strong> Desabilitado</li>
+                <li><strong>Secure Boot:</strong> Desabilitado</li>
+                <li><strong>CSM:</strong> Desabilitado</li>
+                <li><strong>VT-x / VT-d (Virtualization):</strong> Desabilitado</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="spoofer-process" class="instruction-section">
+          <h2><span class="section-icon">🚀</span> 4. Processo do Spoofer</h2>
+          <p>Agora vamos para a parte mais importante. Siga os passos com atenção.</p>
+          <ol class="process-list">
+            <li>Baixe a versão mais atualizada do Spoofer.</li>
+            <li>Abra o Spoofer, vá na <strong>segunda opção</strong> e tire uma print do seu HWID para comparação futura.</li>
+            <li>Vá na <strong>terceira opção</strong> e clique em "SPOOF". Aguarde cerca de 1 minuto.</li>
+            <li>Quando solicitado, escolha seu pendrive e clique em "EFI" até receber uma mensagem de confirmação.</li>
+            <li><strong>Reinicie o PC.</strong> Ao iniciar o Windows, um CMD deve aparecer confirmando a alteração do MAC.</li>
+            <li>Abra o Spoofer novamente e verifique seu HWID. Compare com a print para confirmar que os valores mudaram.</li>
+          </ol>
+        </section>
+
+        <section id="final-steps" class="instruction-section">
+          <h2><span class="section-icon">🎮</span> 5. Passos Finais</h2>
+          <p>Seu sistema está quase pronto para o jogo.</p>
+          <div class="instruction-box">
+            <div class="instruction-icon">🌐</div>
+            <div class="instruction-details">
+              <h3>Instale o WARP</h3>
+              <p>Baixe e instale o <a href="https://www.warp.dev/download" target="_blank" rel="noopener noreferrer">WARP</a>. Ele ajuda a proteger sua conexão.</p>
+            </div>
+          </div>
+          <div class="instruction-box">
+            <div class="instruction-icon">🔫</div>
+            <div class="instruction-details">
+              <h3>Instale e Jogue Valorant</h3>
+              <p>Baixe o Valorant. Antes de abrir o jogo, <strong>ligue o WARP</strong>. Você pode mantê-lo ligado ou desligá-lo quando estiver no lobby do jogo. Pronto!</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="last-updated">
+          Última atualização: ${new Date().toLocaleDateString('pt-BR')}
+        </div>
+      </main>
+    </div>
+  `;
+  return page;
+}
+
+// *** NOVA FUNÇÃO PARA A PÁGINA 2 DE INSTRUÇÕES (#instructions2) ***
+function createInstructionsPage2() {
   const page = document.createElement('div');
   page.className = 'instructions-page';
   page.innerHTML = `
@@ -412,14 +555,14 @@ function createInstructionsPage() {
            <div class="instruction-box">
             <div class="instruction-icon">⚠️</div>
             <div class="instruction-details">
-              <p>GHOST SPECTRE É RECOMENDADO, MAS NÃO OBRIGATÓRIO. Qualquer versão do Windows 10 até o Windows 11 23h2 funciona.</p>
+              <p><strong>GHOST SPECTRE É RECOMENDADO, MAS NÃO OBRIGATÓRIO.</strong> Qualquer versão do Windows 10 até o Windows 11 23h2 funciona.</p>
             </div>
           </div>
         </section>
 
         <section id="download-iso" class="instruction-section">
           <h2><span class="section-icon">1️⃣</span> Etapa 1: Baixar o ISO do Ghost Spectre</h2>
-          <p>Recomendamos usar a edição SE (SuperLite Edition). Não é necessário ser exatamente o Ghost Spectre.</p>
+          <p>Recomendamos usar a edição SE (SuperLite Edition). (Não é necessário ser exatamente o Ghost Spectre)</p>
            <div class="instruction-box">
             <div class="instruction-icon">⚠️</div>
             <div class="instruction-details">
@@ -431,7 +574,7 @@ function createInstructionsPage() {
 
         <section id="criar-usb" class="instruction-section">
           <h2><span class="section-icon">2️⃣</span> Etapa 2: Criar um USB bootável usando o Rufus</h2>
-          <p>Assista ao tutorial em vídeo: <a href="https://www.youtube.com/watch?v=JlUm_gi7eUE" target="_blank">Como usar o Rufus</a></p>
+          <p>🎥 Tutorial em vídeo: <a href="https://www.youtube.com/watch?v=JlUm_gi7eUE" target="_blank">Como usar o Rufus</a></p>
           <ol class="process-list">
              <li>Baixe o Rufus.</li>
              <li>Insira o seu pendrive.</li>
@@ -443,7 +586,7 @@ function createInstructionsPage() {
 
         <section id="instalar-windows" class="instruction-section">
           <h2><span class="section-icon">3️⃣</span> Etapa 3: Instalar o Ghost Spectre Windows 10</h2>
-          <p>Tutorial completo desde o USB até a instalação do Windows: <a href="https://www.youtube.com/watch?v=dl0erDy4Hs4" target="_blank">Ver Vídeo</a></p>
+          <p>🎥 Tutorial completo desde o USB até a instalação do Windows: <a href="https://www.youtube.com/watch?v=dl0erDy4Hs4" target="_blank">Ver Vídeo</a></p>
            <ol class="process-list">
              <li>Acesse a BIOS e defina o pendrive como primeiro dispositivo de boot.</li>
              <li>Reinicie o PC e entre no instalador do Ghost Spectre.</li>
@@ -465,7 +608,7 @@ function createInstructionsPage() {
 
         <section id="atualizar-bios" class="instruction-section">
           <h2><span class="section-icon">5️⃣</span> Etapa 5: Atualizar a BIOS</h2>
-          <p>Tutorial em vídeo: <a href="https://www.youtube.com/watch?v=KqiCe0_rNII" target="_blank">Como atualizar a BIOS a partir do USB</a></p>
+          <p>🎥 Tutorial em vídeo: <a href="https://www.youtube.com/watch?v=KqiCe0_rNII" target="_blank">Como atualizar a BIOS a partir do USB</a></p>
           <div class="instruction-box" style="border-color: var(--warning);">
             <div class="instruction-icon">⚠️</div>
             <div class="instruction-details">
@@ -489,13 +632,15 @@ function createInstructionsPage() {
             </div>
           </div>
         </section>
-
+        
+        <div class="last-updated">
+          Última atualização: ${new Date().toLocaleDateString('pt-BR')}
+        </div>
       </main>
     </div>
   `;
   return page;
 }
-
 
 // Modal container creation and management
 function initializeProductModals() {
@@ -632,21 +777,19 @@ function initializeNavigation() {
 
     anchor.addEventListener('click', function (e) {
       const targetHash = this.getAttribute('href');
-      const onInstructionsPage = window.location.hash === '#instructions';
+      const onInstructionsPage = window.location.hash.startsWith('#instructions');
 
-      if (this.dataset.page === 'instructions') { // Simplified logic for instructions
+      if (this.dataset.page === 'instructions') {
         e.preventDefault();
-        if (!onInstructionsPage) {
-          window.location.hash = 'instructions';
+        if (window.location.hash !== targetHash) {
+          window.location.hash = targetHash;
           location.reload();
         }
       } else if (this.dataset.page === 'home') {
         if (onInstructionsPage) {
-          // This navigates to the base URL, forcing a page reload to the homepage.
           e.preventDefault();
           window.location.href = window.location.pathname;
         } else {
-          // Already on the home page, so just smooth scroll
           e.preventDefault();
           const targetElement = document.querySelector(targetHash);
           if (targetElement) {
@@ -658,7 +801,7 @@ function initializeNavigation() {
   });
 
   // Handle sidebar navigation and scroll spy on the instructions page
-  if (window.location.hash === '#instructions') {
+  if (window.location.hash.startsWith('#instructions')) {
     const sidebarLinks = document.querySelectorAll('.sidebar-link');
     const sections = document.querySelectorAll('.instruction-section');
 
