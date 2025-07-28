@@ -660,10 +660,12 @@ function initializeNavigation() {
         }
       } else if (this.dataset.page === 'home') {
         if (onInstructionsPage) {
-          // From instructions to home, let the browser handle reload
-          window.location.href = window.location.pathname + targetHash;
+          // CORRECTED LINE:
+          // This navigates to the base URL, forcing a page reload to the homepage.
+          e.preventDefault();
+          window.location.href = window.location.pathname;
         } else {
-          // Already on home page, smooth scroll
+          // Already on the home page, so just smooth scroll
           e.preventDefault();
           const targetElement = document.querySelector(targetHash);
           if (targetElement) {
