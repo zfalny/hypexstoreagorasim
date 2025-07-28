@@ -240,10 +240,12 @@ function createHeader() {
   header.className = 'header';
   header.innerHTML = `
     <div class="header-content">
-      <div class="logo-container">
-        <img src="https://i.postimg.cc/2yrD1y8X/PNG.png" alt="Hypex Logo" class="logo">
-        <span class="logo-text">Hypex</span>
-      </div>
+      <a href="#home" class="logo-link" data-page="home" style="text-decoration: none;">
+        <div class="logo-container">
+          <img src="https://i.postimg.cc/2yrD1y8X/PNG.png" alt="Hypex Logo" class="logo">
+          <span class="logo-text">Hypex</span>
+        </div>
+      </a>
       <nav class="nav">
         <a href="#home" class="nav-link" data-page="home">Início</a>
         <a href="#products" class="nav-link" data-page="home">Produtos</a>
