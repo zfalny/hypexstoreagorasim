@@ -242,7 +242,7 @@ function createHeader() {
     <div class="header-content">
       <a href="#home" class="logo-link" data-page="home" style="text-decoration: none;">
         <div class="logo-container">
-          <img src="https://i.postimg.cc/2yrD1y8X/PNG.png" alt="Hypex Logo" class="logo" style="width: 60px; height: 60px;">
+          <img src="https://i.postimg.cc/2yrD1y8X/PNG.png" alt="Hypex Logo" class="logo" style="width: 80px; height: 80px;">
         </div>
       </a>
       <nav class="nav">
@@ -382,13 +382,14 @@ function createInstructionsPage() {
   page.innerHTML = `
     <div class="instructions-container">
       <aside class="instructions-sidebar">
-        <h3>Guia do Spoofer</h3>
+        <h3>Guia Spoofer+Bypass</h3>
         <ul>
-          <li><a href="#clean-install" class="sidebar-link active">1. Preparação</a></li>
-          <li><a href="#bios-flash" class="sidebar-link">2. Flash da BIOS</a></li>
-          <li><a href="#bios-config" class="sidebar-link">3. Configuração da BIOS</a></li>
-          <li><a href="#spoofer-process" class="sidebar-link">4. Processo do Spoofer</a></li>
-          <li><a href="#final-steps" class="sidebar-link">5. Passos Finais</a></li>
+          <li><a href="#requisitos" class="sidebar-link active">Requisitos</a></li>
+          <li><a href="#download-iso" class="sidebar-link">Etapa 1: Baixar ISO</a></li>
+          <li><a href="#criar-usb" class="sidebar-link">Etapa 2: Criar USB</a></li>
+          <li><a href="#instalar-windows" class="sidebar-link">Etapa 3: Instalar Windows</a></li>
+          <li><a href="#usar-spoofer" class="sidebar-link">Etapa 4: Usar Spoofer</a></li>
+          <li><a href="#atualizar-bios" class="sidebar-link">Etapa 5: Atualizar BIOS</a></li>
         </ul>
         <div class="community-feedback">
           <h4>Ainda com dúvidas?</h4>
@@ -397,122 +398,104 @@ function createInstructionsPage() {
         </div>
       </aside>
       <main class="instructions-content">
-        <h1 class="page-title">Guia de Instalação do Spoofer 📁</h1>
-        <p class="powered-by">Powered by Hypex Support</p>
+        <h1 class="page-title">🛡️ Configuração Spoofer+Bypass — Guia Completo</h1>
+        <p class="powered-by">Este guia irá te orientar na criação de um ambiente de testes limpo e seguro.</p>
 
-        <section id="clean-install" class="instruction-section">
-          <h2><span class="section-icon">🧹</span> 1. Preparação do Sistema</h2>
-          <p>Para garantir que o spoofer funcione corretamente, é crucial começar com um sistema limpo para remover quaisquer traços de banimentos anteriores.</p>
-          <div class="instruction-box">
-            <div class="instruction-icon">💿</div>
+        <section id="requisitos" class="instruction-section">
+          <h2><span class="section-icon">📦</span> Requisitos</h2>
+          <ul class="bios-list" style="line-height: 1.8;">
+            <li>Um pendrive USB (mínimo de 8 GB)</li>
+            <li>Acesso à BIOS/UEFI do seu sistema</li>
+            <li>Um segundo dispositivo para preparar o USB (recomendado)</li>
+            <li>Conexão com a internet</li>
+          </ul>
+           <div class="instruction-box">
+            <div class="instruction-icon">⚠️</div>
             <div class="instruction-details">
-              <h3>Reinstalação Limpa do Windows</h3>
-              <p>Você deve realizar uma reinstalação limpa do Windows. Recomendamos usar uma ISO oficial da Microsoft. <strong>Após a instalação, NÃO LOGUE EM NENHUMA CONTA MICROSOFT.</strong></p>
-            </div>
-          </div>
-          <div class="instruction-box">
-            <div class="instruction-icon">🛡️</div>
-            <div class="instruction-details">
-              <h3>Desativar Antivírus</h3>
-              <p>Desative todos os antivírus. Para o Windows Defender, use o <a href="https://www.sordum.org/files/downloads.php?st-defender-control" target="_blank" rel="noopener noreferrer">Control Defender</a> para desativação permanente. (Senha do arquivo: <strong>sordum</strong>)</p>
-            </div>
-          </div>
-          <div class="instruction-box">
-            <div class="instruction-icon">🔄</div>
-            <div class="instruction-details">
-              <h3>Desabilitar Windows Update</h3>
-              <p>Use o <a href="https://www.sordum.org/files/downloads.php?st-windows-update-blocker" target="_blank" rel="noopener noreferrer">WUB (Windows Update Blocker)</a> para evitar atualizações automáticas que possam interferir no processo. (Senha do arquivo: <strong>sordum</strong>)</p>
+              <p>GHOST SPECTRE É RECOMENDADO, MAS NÃO OBRIGATÓRIO. Qualquer versão do Windows 10 até o Windows 11 23h2 funciona.</p>
             </div>
           </div>
         </section>
 
-        <section id="bios-flash" class="instruction-section">
-          <h2><span class="section-icon">⚡</span> 2. Flash da BIOS</h2>
-          <p>Fazer o "flash" da BIOS é um passo essencial. Você deve instalar uma versão <strong>diferente</strong> da atual (superior ou inferior). Nunca use a mesma versão.</p>
-          <div class="instruction-box">
-            <div class="instruction-icon">📥</div>
+        <section id="download-iso" class="instruction-section">
+          <h2><span class="section-icon">1️⃣</span> Etapa 1: Baixar o ISO do Ghost Spectre</h2>
+          <p>Recomendamos usar a edição SE (SuperLite Edition). Não é necessário ser exatamente o Ghost Spectre.</p>
+           <div class="instruction-box">
+            <div class="instruction-icon">⚠️</div>
             <div class="instruction-details">
-              <h3>Como Fazer o Flash</h3>
-              <p>Baixe o arquivo da BIOS diretamente do site oficial do fabricante da sua placa-mãe. Coloque o arquivo em um pendrive e siga o procedimento de flash. Assista a um tutorial em vídeo se não tiver certeza.</p>
+              <p>O arquivo baixado terá a extensão (.WPE64), basta renomear para .rar.</p>
             </div>
           </div>
-          <div class="bios-grid">
-            <a href="https://youtu.be/Em7SRaG3L_0" target="_blank" rel="noopener noreferrer" class="bios-card video-link"><h3>ASUS</h3><p>Ver tutorial em vídeo</p></a>
-            <a href="https://youtu.be/dUCWRqOdLUw" target="_blank" rel="noopener noreferrer" class="bios-card video-link"><h3>ASROCK</h3><p>Ver tutorial em vídeo</p></a>
-            <a href="https://youtu.be/DIIde3s02kM" target="_blank" rel="noopener noreferrer" class="bios-card video-link"><h3>GIGABYTE/AORUS</h3><p>Ver tutorial em vídeo</p></a>
-            <a href="https://youtu.be/sKMub20CUNI" target="_blank" rel="noopener noreferrer" class="bios-card video-link"><h3>MSI</h3><p>Ver tutorial em vídeo</p></a>
-            <a href="https://www.youtube.com/watch?v=EBb0zH5FN6k&t" target="_blank" rel="noopener noreferrer" class="bios-card video-link"><h3>BIOSTAR</h3><p>Ver tutorial em vídeo</p></a>
-            <a href="https://www.youtube.com/watch?v=RnI53zsoAoM&t" target="_blank" rel="noopener noreferrer" class="bios-card video-link"><h3>X99 / X79</h3><p>Ver tutorial em vídeo</p></a>
-          </div>
+          <a href="https://pixeldrain.com/u/kJW8WnL9" target="_blank" rel="noopener noreferrer" class="product-cta" style="display: inline-block; width: auto; padding: 0.75rem 1.5rem;">🔗 Link de Download</a>
         </section>
 
-        <section id="bios-config" class="instruction-section">
-          <h2><span class="section-icon">⚙️</span> 3. Configuração da BIOS</h2>
-          <p>Após o flash, entre na BIOS novamente para fazer as seguintes alterações. Salve e saia ao concluir.</p>
-          <div class="bios-grid">
-            <div class="bios-card">
-              <h3 class="bios-title">Processadores AMD</h3>
-              <ul class="bios-list">
-                <li><strong>TPM 2.0:</strong> Desabilitado</li>
-                <li><strong>Trusted Computing:</strong> Desabilitado</li>
-                <li><strong>Secure Boot:</strong> Desabilitado</li>
-                <li><strong>CSM:</strong> Desabilitado</li>
-                <li><strong>SVM (Virtualization):</strong> Desabilitado</li>
-              </ul>
-            </div>
-              <div class="bios-card">
-              <h3 class="bios-title">Processadores Intel</h3>
-              <ul class="bios-list">
-                <li><strong>PTT / TPM:</strong> Desabilitado</li>
-                <li><strong>Trusted Computing:</strong> Desabilitado</li>
-                <li><strong>Secure Boot:</strong> Desabilitado</li>
-                <li><strong>CSM:</strong> Desabilitado</li>
-                <li><strong>VT-x / VT-d (Virtualization):</strong> Desabilitado</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="spoofer-process" class="instruction-section">
-          <h2><span class="section-icon">🚀</span> 4. Processo do Spoofer</h2>
-          <p>Agora vamos para a parte mais importante. Siga os passos com atenção.</p>
+        <section id="criar-usb" class="instruction-section">
+          <h2><span class="section-icon">2️⃣</span> Etapa 2: Criar um USB bootável usando o Rufus</h2>
+          <p>Assista ao tutorial em vídeo: <a href="https://www.youtube.com/watch?v=JlUm_gi7eUE" target="_blank">Como usar o Rufus</a></p>
           <ol class="process-list">
-            <li>Baixe a versão mais atualizada do Spoofer.</li>
-            <li>Abra o Spoofer, vá na <strong>segunda opção</strong> e tire uma print do seu HWID para comparação futura.</li>
-            <li>Vá na <strong>terceira opção</strong> e clique em "SPOOF". Aguarde cerca de 1 minuto.</li>
-            <li>Quando solicitado, escolha seu pendrive e clique em "EFI" até receber uma mensagem de confirmação.</li>
-            <li><strong>Reinicie o PC.</strong> Ao iniciar o Windows, um CMD deve aparecer confirmando a alteração do MAC.</li>
-            <li>Abra o Spoofer novamente e verifique seu HWID. Compare com a print para confirmar que os valores mudaram.</li>
+             <li>Baixe o Rufus.</li>
+             <li>Insira o seu pendrive.</li>
+             <li>Abra o Rufus e selecione o ISO do Ghost Spectre.</li>
+             <li>Em “Esquema de Partição”, escolha GPT (para sistemas UEFI).</li>
+             <li>Clique em “Iniciar” e aguarde a conclusão.</li>
           </ol>
         </section>
 
-        <section id="final-steps" class="instruction-section">
-          <h2><span class="section-icon">🎮</span> 5. Passos Finais</h2>
-          <p>Seu sistema está quase pronto para o jogo.</p>
-          <div class="instruction-box">
-            <div class="instruction-icon">🌐</div>
+        <section id="instalar-windows" class="instruction-section">
+          <h2><span class="section-icon">3️⃣</span> Etapa 3: Instalar o Ghost Spectre Windows 10</h2>
+          <p>Tutorial completo desde o USB até a instalação do Windows: <a href="https://www.youtube.com/watch?v=dl0erDy4Hs4" target="_blank">Ver Vídeo</a></p>
+           <ol class="process-list">
+             <li>Acesse a BIOS e defina o pendrive como primeiro dispositivo de boot.</li>
+             <li>Reinicie o PC e entre no instalador do Ghost Spectre.</li>
+             <li>Selecione seu disco e realize uma instalação limpa.</li>
+             <li>Após a instalação, configure o Windows normalmente.</li>
+          </ol>
+        </section>
+
+        <section id="usar-spoofer" class="instruction-section">
+          <h2><span class="section-icon">4️⃣</span> Etapa 4: Usar o Spoofer</h2>
+          <p>Após instalar o Windows, siga esta sequência para fazer o spoof do sistema:</p>
+           <ol class="process-list">
+            <li>Faça login no carregador (loader).</li>
+            <li>Renove sua assinatura do spoofer, se ainda não tiver.</li>
+            <li>Clique em “Spoof” e aguarde até aparecer a mensagem para reiniciar o PC.</li>
+            <li>Quando o spoof for concluído e o PC reiniciar, continue para a próxima etapa.</li>
+          </ol>
+        </section>
+
+        <section id="atualizar-bios" class="instruction-section">
+          <h2><span class="section-icon">5️⃣</span> Etapa 5: Atualizar a BIOS</h2>
+          <p>Tutorial em vídeo: <a href="https://www.youtube.com/watch?v=KqiCe0_rNII" target="_blank">Como atualizar a BIOS a partir do USB</a></p>
+          <div class="instruction-box" style="border-color: var(--warning);">
+            <div class="instruction-icon">⚠️</div>
             <div class="instruction-details">
-              <h3>Instale o WARP</h3>
-              <p>Baixe e instale o <a href="https://www.warp.dev/download" target="_blank" rel="noopener noreferrer">WARP</a>. Ele ajuda a proteger sua conexão.</p>
+              <p><strong>Sempre faça o spoof ANTES de atualizar a BIOS.</strong></p>
             </div>
           </div>
-          <div class="instruction-box">
-            <div class="instruction-icon">🔫</div>
+          <ol class="process-list">
+            <li>Prepare um segundo pendrive com o arquivo da BIOS da sua placa-mãe.</li>
+            <li>Acesse a BIOS e localize a ferramenta EZ Flash / Q-Flash / M-Flash (varia conforme a marca).</li>
+            <li>Selecione o arquivo da BIOS e siga as instruções na tela.</li>
+            <li>Deixe o processo de atualização terminar e reinicie o sistema.</li>
+          </ol>
+          <div class="instruction-box" style="border-color: var(--error);">
+            <div class="instruction-icon">⚠️</div>
             <div class="instruction-details">
-              <h3>Instale e Jogue Valorant</h3>
-              <p>Baixe o Valorant. Antes de abrir o jogo, <strong>ligue o WARP</strong>. Você pode mantê-lo ligado ou desligá-lo quando estiver no lobby do jogo. Pronto!</p>
+                <ul class="bios-list" style="line-height: 1.8;">
+                    <li>O <strong>TPM</strong> DEVE ESTAR DESATIVADO APÓS A ATUALIZAÇÃO DA BIOS.</li>
+                    <li>O <strong>SECURE BOOT</strong> DEVE ESTAR NO MODO PADRÃO UEFI E ATIVADO.</li>
+                    <li>A <strong>VIRTUALIZAÇÃO</strong> DEVE ESTAR ATIVADA.</li>
+                </ul>
             </div>
           </div>
         </section>
 
-        <div class="last-updated">
-          Última atualização: ${new Date().toLocaleDateString('pt-BR')}
-        </div>
       </main>
     </div>
   `;
   return page;
 }
+
 
 // Modal container creation and management
 function initializeProductModals() {
