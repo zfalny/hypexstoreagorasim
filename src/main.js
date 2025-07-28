@@ -242,14 +242,12 @@ function createHeader() {
     <div class="header-content">
       <a href="#home" class="logo-link" data-page="home" style="text-decoration: none;">
         <div class="logo-container">
-          <img src="https://i.postimg.cc/2yrD1y8X/PNG.png" alt="Hypex Logo" class="logo">
-          <span class="logo-text">Hypex</span>
+          <img src="https://i.postimg.cc/2yrD1y8X/PNG.png" alt="Hypex Logo" class="logo" style="width: 60px; height: 60px;">
         </div>
       </a>
       <nav class="nav">
         <a href="#home" class="nav-link" data-page="home">Início</a>
         <a href="#products" class="nav-link" data-page="home">Produtos</a>
-        <a href="#instructions" class="nav-link" data-page="instructions">Instruções</a>
         <a href="${DISCORD_LINK}" target="_blank" rel="noopener noreferrer" class="discord-btn">Discord</a>
       </nav>
       <button class="mobile-menu-toggle">☰</button>
@@ -607,7 +605,6 @@ function createFooter() {
       <div class="footer-links">
         <a href="#home" class="footer-link" data-page="home">Início</a>
         <a href="#products" class="footer-link" data-page="home">Produtos</a>
-        <a href="#instructions" class="footer-link" data-page="instructions">Instruções</a>
         <a href="${DISCORD_LINK}" target="_blank" rel="noopener noreferrer" class="footer-link">Discord</a>
       </div>
       <div class="copyright">
@@ -654,7 +651,7 @@ function initializeNavigation() {
       const targetHash = this.getAttribute('href');
       const onInstructionsPage = window.location.hash === '#instructions';
 
-      if (targetHash === '#instructions') {
+      if (this.dataset.page === 'instructions') { // Simplified logic for instructions
         e.preventDefault();
         if (!onInstructionsPage) {
           window.location.hash = 'instructions';
@@ -662,7 +659,6 @@ function initializeNavigation() {
         }
       } else if (this.dataset.page === 'home') {
         if (onInstructionsPage) {
-          // CORRECTED LINE:
           // This navigates to the base URL, forcing a page reload to the homepage.
           e.preventDefault();
           window.location.href = window.location.pathname;
